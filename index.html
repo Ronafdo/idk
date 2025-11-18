@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A little heartfelt web page filled with memories, notes, and playful surprises for the one I love.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For the Love of My Life</title>
+    <link rel="stylesheet" href="styles.css">
+https://github.com/Ronafdo/idk    <!-- Add a small favicon placeholder (replace with a real file if desired) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='36'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="stars-container">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">For the Love of My Life <span class="heart-emoji">❤️</span></h1>
+            <p class="hero-subtitle">A little something special, just for you</p>
+            
+            <div class="floating-hearts-hero">
+                <div class="floating-heart">💕</div>
+                <div class="floating-heart">💕</div>
+                <div class="floating-heart">💕</div>
+            </div>
+            
+            <button class="cta-button" onclick="document.getElementById('message').scrollIntoView({behavior: 'smooth'})">
+                Start the Surprise ✨
+            </button>
+        </div>
+    </section>
+
+    <!-- Personalized Message Section -->
+    <section id="message" class="message-section">
+        <div class="container">
+            <h2>A Message from My Heart</h2>
+            
+            <div class="message-card">
+                <div class="message-content">
+                    <p>My dearest,</p>
+                    <p>From the moment I met you, my life changed in the most beautiful way. You're not just someone I love—you're the reason I believe in forever. Your kindness, your laugh, the way you see the good in everything... it makes me want to be a better person every single day.</p>
+                    <p>You make ordinary moments feel magical. Whether we're doing nothing together or going on adventures, I'm happiest when I'm with you. Thank you for being patient, for being there, and for loving me exactly as I am.</p>
+                    <p>I'm so grateful for you. Every single day.</p>
+                </div>
+                <button class="reveal-button" onclick="toggleReveal()">Tap to Reveal More Love 💕</button>
+                <div id="hidden-messages" class="hidden-messages hidden">
+                    <p>You're the best decision I've ever made.</p>
+                    <p>I fall for you a little more every day.</p>
+                    <p>You're my favorite hello and hardest goodbye.</p>
+                    <p>You make life softer, brighter, and safer.</p>
+                    <p>I love the way you love me.</p>
+                </div>
+            </div>
+
+            <!-- Love Notes Generator -->
+            <div class="love-notes-section">
+                <h3>Random Love Note</h3>
+                <div class="note-box">
+                    <p id="love-note-display">Click the button to see a random love note...</p>
+                </div>
+                <button class="note-button" onclick="generateLoveNote()">Generate Love Note 💌</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Photo Carousel -->
+    <section id="photos" class="carousel-section">
+        <div class="container">
+            <h2>Our Beautiful Memories</h2>
+            <div class="carousel">
+                <div class="carousel-slide active">
+                    <div class="photo-frame">
+                        <img src="images/photo-1.jpg" alt="Her adorable glasses pose" class="carousel-image photo-top">
+                        <p class="photo-caption">That silly face steals me every time 💕</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="photo-frame">
+                        <img src="images/photo-2.jpg" alt="Both of us being goofy together" class="carousel-image">
+                        <p class="photo-caption">Two goofballs made for each other</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="photo-frame">
+                        <img src="images/photo-3.jpg" alt="Evening city photo of us" class="carousel-image">
+                        <p class="photo-caption">Ughh the ride back home 😭</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="photo-frame">
+                        <img src="images/photo-4.jpg" alt="Her red tee selfie" class="carousel-image">
+                        <p class="photo-caption">This iconic pose is my favourite, I'm stealing it</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+                <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+            </div>
+            <div class="carousel-dots">
+                <button class="dot active" aria-label="Show slide 1" onclick="goToSlide(1)"></button>
+                <button class="dot" aria-label="Show slide 2" onclick="goToSlide(2)"></button>
+                <button class="dot" aria-label="Show slide 3" onclick="goToSlide(3)"></button>
+                <button class="dot" aria-label="Show slide 4" onclick="goToSlide(4)"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Missing You Timer -->
+    <section id="timeline" class="missing-section">
+        <div class="container">
+            <h2>Missing you since</h2>
+            <p class="missing-date">October 18, 2025</p>
+            <div class="timer-grid">
+                <div class="time-card">
+                    <span id="time-days" class="time-value">0</span>
+                    <span class="time-label">days</span>
+                </div>
+                <div class="time-card">
+                    <span id="time-hours" class="time-value">0</span>
+                    <span class="time-label">hours</span>
+                </div>
+                <div class="time-card">
+                    <span id="time-minutes" class="time-value">0</span>
+                    <span class="time-label">minutes</span>
+                </div>
+                <div class="time-card">
+                    <span id="time-seconds" class="time-value">0</span>
+                    <span class="time-label">seconds</span>
+                </div>
+            </div>
+            <p class="missing-note">Counting every heartbeat until I can hold you again.</p>
+        </div>
+    </section>
+
+    <!-- Reasons I Love You -->
+    <section id="reasons" class="reasons-section">
+        <div class="container">
+            <h2>20+ Reasons I Love You</h2>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">Your laugh is my favorite sound</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">You make ordinary days special</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">You're the gentlest soul I know</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">Your kindness inspires me daily</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">You see the best in everyone</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">Life is better with you in it</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">Your smile brightens my day</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">You're my safe place</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">I trust you completely</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">You challenge me to be better</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">Your support means everything</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">You make me feel loved always</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">You're my best friend</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">Every moment with you is precious</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">You get my weirdness perfectly</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">I'd choose you in every lifetime</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">Your dreams are my dreams too</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">You love me at my lowest</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">Forever isn't long enough</div>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-front">💕</div>
+                    <div class="reason-back">Because you're simply the best</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games-section">
+        <div class="container">
+            <h2>Fun Interactive Surprises</h2>
+            
+            <!-- Pet Name Generator -->
+            <div class="game-card pet-name-game">
+                <h3>What Do I Call You Today? 🐱</h3>
+                <p id="pet-name-display">Click to discover...</p>
+                <button class="game-button" onclick="generatePetName()">Get Your Name Today 💕</button>
+            </div>
+
+            <!-- Gift Box -->
+                <div class="game-card gift-game">
+                <h3>A Special Gift 🎁</h3>
+                <div class="gift-box" onclick="openGift()" id="gift-box" role="button" aria-label="Open gift">
+                    <div class="gift-top"></div>
+                    <div class="gift-bottom"></div>
+                    <div class="gift-ribbon"></div>
+                </div>
+                <p id="gift-message" class="gift-message hidden">You won a single free pass to do any one thing 💜</p>
+            </div>
+
+            <!-- Catch the Hearts Game -->
+            <div class="game-card hearts-game">
+                <h3>Catch the Hearts! 💗</h3>
+                <div id="game-area"></div>
+                <button class="game-button" onclick="startHeartGame()">Start Game</button>
+                <p id="game-timer" class="game-timer">Time left: 00:00</p>
+                <p id="game-score">Score: 0</p>
+                <p id="game-result" class="game-result">Catch as many hearts as you can!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open When Cards -->
+    <section class="open-when-section">
+        <div class="container">
+            <h2>Open When...</h2>
+            <div class="open-when-cards">
+                <div class="open-card">
+                    <div class="card-front">Open when you're sad 😢</div>
+                    <div class="card-content">
+                        <p>Remember that I'm always here for you. Your feelings matter, and it's okay to not be okay sometimes. But know that you're stronger than you think, and I believe in you completely.</p>
+                    </div>
+                </div>
+                <div class="open-card">
+                    <div class="card-front">Open when you're stressed 😰</div>
+                    <div class="card-content">
+                        <p>Take a deep breath. You've got this. Everything that's worrying you right now will pass. Remember all the times you've overcome challenges? You're amazing at handling tough situations. I'm here to support you through it all.</p>
+                    </div>
+                </div>
+                <div class="open-card">
+                    <div class="card-front">Open when you can't sleep 😴</div>
+                    <div class="card-content">
+                        <p>I hope you know that even at night, I'm thinking of you. Close your eyes and imagine my hand holding yours. You're safe, you're loved, and tomorrow is a new day full of possibilities. Sweet dreams, love.</p>
+                    </div>
+                </div>
+                <div class="open-card">
+                    <div class="card-front">Open when you doubt yourself 🤔</div>
+                    <div class="card-content">
+                        <p>Stop. You are incredible. Every doubt you have is a lie. Look at everything you've accomplished. You inspire me every single day with your courage and determination. Never forget how amazing you are.</p>
+                    </div>
+                </div>
+                <div class="open-card">
+                    <div class="card-front">Open when you miss me 💭</div>
+                    <div class="card-content">
+                        <p>I miss you too. No matter where I am or how long we're apart, my heart is always with you. We'll be together soon, and until then, remember that distance doesn't change what we have. I love you always.</p>
+                    </div>
+                </div>
+                <div class="open-card">
+                    <div class="card-front">Open just because 🎀</div>
+                    <div class="card-content">
+                        <p>Just wanted to remind you that I love you. Not for any reason in particular, but simply because you're you. Thank you for being mine. Thank you for everything. I love you so much.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="handwritten">With all my love, always. 💕</p>
+        <div class="beating-heart" onclick="beatHeart()" id="beating-heart">❤️</div>
+    </footer>
+
+    <!-- Floating hearts on page -->
+    <div class="floating-hearts-container" id="floating-hearts"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
